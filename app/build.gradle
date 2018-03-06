@@ -32,4 +32,8 @@ dependencies {
     compile 'com.google.dagger:dagger-android:2.14.1'
     compile 'com.google.dagger:dagger-android-support:2.14.1' // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
+
+    // An HTTP & HTTP/2 client for Android and Java applications.
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+
 }
