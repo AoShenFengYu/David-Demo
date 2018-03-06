@@ -8,17 +8,20 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Inject Presenter presenter;
+    @Inject
+    Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-   AppComponent component =     DaggerAppComponent.create();
+        injection();
+    }
+
+    private void injection() {
+        AppComponent component = DaggerAppComponent.create();
 
         component.inject(this);
-
-        Log.e("AAAA" ,"" + presenter);
     }
 }

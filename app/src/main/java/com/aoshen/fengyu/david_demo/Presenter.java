@@ -1,5 +1,7 @@
 package com.aoshen.fengyu.david_demo;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 /**
@@ -13,5 +15,6 @@ public class Presenter {
     @Inject
     public Presenter(Model model) {
         this.model = model;
+        model.setPresenter(this);
     }
 }
