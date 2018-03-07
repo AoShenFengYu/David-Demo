@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         injection();
+        presenter.startWorking();
     }
 
     private void injection() {

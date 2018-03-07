@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">David-Demo</string>
+    <string name="key_dribbble_clinet_id">DRIBBBLE_CLIENT_ID</string>
+
 </resources>

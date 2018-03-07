@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 數據上報用 -->
+        <meta-data
+            android:name="@string/key_dribbble_clinet_id"
+            android:value="cea34a4170e30410cb10d6ee0f42c274c5ada0e49f9fd3e9eeb201262074d410" />
+
     </application>
 
 </manifest>

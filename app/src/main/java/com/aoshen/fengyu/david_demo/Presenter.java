@@ -17,4 +17,8 @@ public class Presenter {
         this.model = model;
         model.setPresenter(this);
     }
+
+    public void startWorking() {
+
+    }
 }
