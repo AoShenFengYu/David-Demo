@@ -1,10 +1,17 @@
 package com.aoshen.fengyu.david_demo;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.aoshen.fengyu.david_demo.Constant.BASE_URL;
+import static com.aoshen.fengyu.david_demo.Constant.DATE_FORMAT;
 
 /**
  * Created by kika-david on 2018/3/6.
@@ -22,13 +29,24 @@ public class AppModule {
     @Singleton
     @Provides
     Model provideModel() {
-        return new Model(provideOkHttpClient());
+        return new Model(provideRetrofit());
     }
 
     @Singleton
     @Provides
-    OkHttpClient provideOkHttpClient() {
-        return new OkHttpClient();
+    Retrofit provideRetrofit() {
+        return new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(provideGson()))
+                .build();
+    }
+
+    @Singleton
+    @Provides
+    Gson provideGson() {
+        return new GsonBuilder()
+                .setDateFormat(DATE_FORMAT)
+                .create();
     }
 
 }
