@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">David-Demo</string>
-    <string name="key_dribbble_clinet_id">DRIBBBLE_CLIENT_ID</string>
+    <string name="hello_david">Hello David</string>
+    <string name="search_hint">Input the keyword</string>
+    <string name="search">Search</string>
 
 </resources>
