@@ -1,4 +1,6 @@
-package com.aoshen.fengyu.david_demo;
+package com.aoshen.fengyu.david_demo.di;
+
+import com.aoshen.fengyu.david_demo.presenter.MainActivity;
 
 import javax.inject.Singleton;
 
@@ -11,5 +13,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = AppModule.class)
 public interface AppComponent {
-    void inject(MainActivity activity);
+    void inject(MainActivity mainActivity);
 }

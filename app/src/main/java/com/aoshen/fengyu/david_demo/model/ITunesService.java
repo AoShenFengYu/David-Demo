@@ -1,4 +1,6 @@
-package com.aoshen.fengyu.david_demo;
+package com.aoshen.fengyu.david_demo.model;
+
+import com.aoshen.fengyu.david_demo.model.SearchResult;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

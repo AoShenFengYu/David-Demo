@@ -1,5 +1,9 @@
-package com.aoshen.fengyu.david_demo;
+package com.aoshen.fengyu.david_demo.di;
 
+import com.aoshen.fengyu.david_demo.model.Model;
+import com.aoshen.fengyu.david_demo.presenter.MainActivity;
+import com.aoshen.fengyu.david_demo.presenter.Presenter;
+import com.aoshen.fengyu.david_demo.view.View;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -20,10 +24,22 @@ import static com.aoshen.fengyu.david_demo.Constant.DATE_FORMAT;
 @Module
 public class AppModule {
 
+    private MainActivity mainActivity;
+
+    public AppModule(MainActivity mainActivity) {
+        this.mainActivity = mainActivity;
+    }
+
+    @Singleton
+    @Provides
+    MainActivity provideMainActivity() {
+        return mainActivity;
+    }
+
     @Singleton
     @Provides
     Presenter providePresenter() {
-        return new Presenter(provideModel());
+        return new Presenter(provideModel(), provideView());
     }
 
     @Singleton
@@ -49,4 +65,9 @@ public class AppModule {
                 .create();
     }
 
+    @Singleton
+    @Provides
+    View provideView() {
+        return new View(provideMainActivity());
+    }
 }

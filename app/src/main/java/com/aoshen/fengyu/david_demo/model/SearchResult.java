@@ -1,4 +1,4 @@
-package com.aoshen.fengyu.david_demo;
+package com.aoshen.fengyu.david_demo.model;
 
 import java.util.List;
 
