@@ -1,11 +1,9 @@
-package com.aoshen.fengyu.david_demo.presenter;
+package com.aoshen.fengyu.david_demo.main.mvp.presenter;
 
 import android.util.Log;
-
-import com.aoshen.fengyu.david_demo.model.Model;
-import com.aoshen.fengyu.david_demo.model.SearchResult;
-import com.aoshen.fengyu.david_demo.view.IView;
-import com.aoshen.fengyu.david_demo.view.View;
+import com.aoshen.fengyu.david_demo.main.mvp.MainContract;
+import com.aoshen.fengyu.david_demo.main.mvp.model.MainModel;
+import com.aoshen.fengyu.david_demo.main.mvp.model.bean.SearchResult;
 
 import javax.inject.Inject;
 
@@ -19,21 +17,29 @@ import static com.aoshen.fengyu.david_demo.Constant.TAG;
  * Created by kika-david on 2018/3/6.
  */
 
-public class Presenter implements IPresenter {
+public class MainPresenter implements MainContract.Presenter, ToMainActivityViewAdapter {
 
-    private Model model;
-    private IView view;
+    /**
+     * MainModel
+     **/
+    private MainModel mMainModel;
+
+    /**
+     * MainView
+     **/
+    private MainContract.View mView;
 
     @Inject
-    public Presenter(Model model, IView view) {
-        this.model = model;
-        this.view = view;
-        model.setPresenter(this);
-        view.setPresenter(this);
+    public MainPresenter(MainModel mainModel, MainContract.View view) {
+        this.mMainModel = mainModel;
+        this.mView = view;
+        mainModel.setPresenter(this, this);
+
+        startWorking();
     }
 
     public void startWorking() {
-        model.getSearchResult("Despacito", new Callback<SearchResult>() {
+        mMainModel.getSearchResult("Despacito", new Callback<SearchResult>() {
             @Override
             public void onResponse(Call<SearchResult> call, Response<SearchResult> response) {
                 SearchResult searchResult = response.body();

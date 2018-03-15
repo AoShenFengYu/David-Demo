@@ -1,4 +1,4 @@
-package com.aoshen.fengyu.david_demo.model;
+package com.aoshen.fengyu.david_demo.main.mvp.model.bean;
 
 import java.util.List;
 

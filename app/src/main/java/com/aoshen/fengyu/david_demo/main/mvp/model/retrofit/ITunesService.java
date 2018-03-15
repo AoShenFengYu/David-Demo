@@ -1,6 +1,6 @@
-package com.aoshen.fengyu.david_demo.model;
+package com.aoshen.fengyu.david_demo.main.mvp.model.retrofit;
 
-import com.aoshen.fengyu.david_demo.model.SearchResult;
+import com.aoshen.fengyu.david_demo.main.mvp.model.bean.SearchResult;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
