@@ -6,7 +6,7 @@ import java.util.List;
  * Created by kika-david on 2018/3/9.
  */
 
-public class SearchResult {
+public class SearchResult extends BaseBean {
 
     /**
      * resultCount : 50

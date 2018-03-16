@@ -21,6 +21,11 @@ public class MainModel {
     private ToMainActivityViewAdapter mMainActivityViewAdapter;
     private Retrofit mRetrofit;
 
+    /**
+     * Data
+     * **/
+//    private
+
     public MainModel(Retrofit retrofit) {
         this.mRetrofit = retrofit;
     }

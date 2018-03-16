@@ -3,6 +3,9 @@ package com.aoshen.fengyu.david_demo.di;
 import android.app.Activity;
 import android.app.Application;
 
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -22,6 +25,7 @@ public class BaseApplication extends Application implements HasActivityInjector 
     public void onCreate() {
         super.onCreate();
         DaggerApplicationComponent.create().inject(this);
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     @Override
