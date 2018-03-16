@@ -1,0 +1,12 @@
+<resources>
+
+    <!--=============== Layout Size ===============-->
+    <dimen name="search_result_list_item_content_margin">8dp</dimen>
+
+    <!--=============== Text Size ===============-->
+
+    <dimen name="search_result_list_item_title_text_size">18sp</dimen>
+
+    <dimen name="search_result_list_item_text_size">12sp</dimen>
+
+</resources>

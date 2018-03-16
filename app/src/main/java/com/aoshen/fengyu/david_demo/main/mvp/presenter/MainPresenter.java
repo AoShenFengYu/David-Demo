@@ -43,6 +43,8 @@ public class MainPresenter implements MainContract.Presenter, ToMainActivityView
         Logger.d("搜尋, Keyword = "+keyword);
 
         if(!TextUtils.isEmpty(keyword)){
+            mView.lockSearchButton(true);
+
             mMainModel.getSearchResult(keyword, new Callback<SearchResult>() {
                 @Override
                 public void onResponse(Call<SearchResult> call, Response<SearchResult> response) {
@@ -50,11 +52,14 @@ public class MainPresenter implements MainContract.Presenter, ToMainActivityView
 
                     Logger.d("搜尋, onResponse, searchResult = " + searchResult.toString());
                     mView.updateSearchResultList(searchResult);
+                    mView.lockSearchButton(false);
                 }
 
                 @Override
                 public void onFailure(Call<SearchResult> call, Throwable t) {
                     Logger.e("搜尋, onFailure");
+                    mView.updateSearchResultList(null);
+                    mView.lockSearchButton(false);
                 }
             });
         }

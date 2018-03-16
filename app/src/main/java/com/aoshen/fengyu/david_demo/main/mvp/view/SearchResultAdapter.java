@@ -59,8 +59,11 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
                 SearchResult.ResultsBean data = mSearchResult.getResults().get(position);
                 Uri picUri = Uri.parse(data.getArtworkUrl100());
 
-                holder.trackName.setText(data.getTrackName());
                 holder.thumb.setImageURI(picUri);
+                holder.trackName.setText(data.getTrackName());
+                holder.collectionName.setText(data.getCollectionName());
+                holder.artistName.setText(data.getArtistName());
+
                 break;
         }
     }
@@ -90,8 +93,11 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
+
         SimpleDraweeView thumb;
         TextView trackName;
+        TextView collectionName;
+        TextView artistName;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -102,12 +108,12 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
             int itemViewHeight = (int) (Tools.getScreenSize(mContext)[0] * ITEM_HEIGHT);
 
             itemView.getLayoutParams().height = itemViewHeight;
-
             thumb = itemView.findViewById(R.id.search_result_list_item_thumb);
             thumb.getLayoutParams().width = itemViewHeight;
             thumb.getLayoutParams().height = itemViewHeight;
-
             trackName = itemView.findViewById(R.id.search_result_list_item_track_name);
+            collectionName = itemView.findViewById(R.id.search_result_list_item_collection_name);
+            artistName = itemView.findViewById(R.id.search_result_list_item_artist_name);
         }
     }
 }

@@ -76,4 +76,9 @@ public class MainActivity extends BaseActivity implements MainContract.View , Vi
     public void updateSearchResultList(SearchResult searchResult) {
         mSearchResultListAdapter.update(searchResult);
     }
+
+    @Override
+    public void lockSearchButton(boolean lock) {
+        mSearchButton.setEnabled(!lock);
+    }
 }

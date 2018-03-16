@@ -10,6 +10,8 @@ public interface MainContract {
 
     interface View {
         void updateSearchResultList(SearchResult searchResult);
+
+        void lockSearchButton(boolean lock);
     }
 
 
