@@ -44,4 +44,7 @@ dependencies {
     // Simple, pretty and powerful logger for android
     compile 'com.orhanobut:logger:2.1.1'
 
+    // Fresco is a powerful system for displaying images in Android applications.
+    implementation 'com.facebook.fresco:fresco:1.8.1'
+
 }

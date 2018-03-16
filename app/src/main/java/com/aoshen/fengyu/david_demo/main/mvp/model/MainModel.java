@@ -1,5 +1,11 @@
 package com.aoshen.fengyu.david_demo.main.mvp.model;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Point;
+import android.view.Display;
+import android.view.WindowManager;
+
 import com.aoshen.fengyu.david_demo.main.mvp.model.bean.SearchResult;
 import com.aoshen.fengyu.david_demo.main.mvp.model.retrofit.ITunesService;
 import com.aoshen.fengyu.david_demo.main.mvp.presenter.ToMainActivityViewAdapter;
@@ -15,7 +21,7 @@ import static com.aoshen.fengyu.david_demo.Constant.COUNTRY_CODE;
  * Created by kika-david on 2018/3/6.
  */
 
-public class MainModel {
+public class MainModel extends BaseModel{
 
     private MainPresenter mMainPresenter;
     private ToMainActivityViewAdapter mMainActivityViewAdapter;
@@ -41,4 +47,5 @@ public class MainModel {
 
         call.enqueue(callback);
     }
+
 }

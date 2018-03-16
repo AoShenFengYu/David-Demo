@@ -3,6 +3,7 @@ package com.aoshen.fengyu.david_demo.di;
 import android.app.Activity;
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -26,6 +27,7 @@ public class BaseApplication extends Application implements HasActivityInjector 
         super.onCreate();
         DaggerApplicationComponent.create().inject(this);
         Logger.addLogAdapter(new AndroidLogAdapter());
+        Fresco.initialize(this);
     }
 
     @Override

@@ -72,6 +72,13 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.constraint.Guideline
+        android:id="@+id/activity_main_list_guide_line_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/activity_main_list_guide_line_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,6 +92,6 @@
         app:layout_constraintBottom_toTopOf="@+id/activity_main_list_guide_line_bottom"
         app:layout_constraintLeft_toRightOf="@+id/activity_main_content_guide_line_left"
         app:layout_constraintRight_toLeftOf="@+id/activity_main_content_guide_line_right"
-        app:layout_constraintTop_toBottomOf="@+id/activity_main_search_bar_guide_line_bottom" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_list_guide_line_top" />
 
 </android.support.constraint.ConstraintLayout>

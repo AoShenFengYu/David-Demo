@@ -1,6 +1,7 @@
 package com.aoshen.fengyu.david_demo.main.mvp.view;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aoshen.fengyu.david_demo.R;
+import com.aoshen.fengyu.david_demo.Tools;
 import com.aoshen.fengyu.david_demo.main.mvp.model.bean.SearchResult;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import static android.content.ContentValues.TAG;
 
@@ -21,9 +24,9 @@ import static android.content.ContentValues.TAG;
 
 public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.ItemViewHolder> {
 
+    private final static float ITEM_HEIGHT = 0.25f;
     private Context mContext;
     private RecyclerView mList;
-
     private SearchResult mSearchResult;
 
     public SearchResultAdapter(Context context, RecyclerView list) {
@@ -54,8 +57,10 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         switch (holder.getItemViewType()) {
             case ViewType.ITEM:
                 SearchResult.ResultsBean data = mSearchResult.getResults().get(position);
+                Uri picUri = Uri.parse(data.getArtworkUrl100());
 
                 holder.trackName.setText(data.getTrackName());
+                holder.thumb.setImageURI(picUri);
                 break;
         }
     }
@@ -77,7 +82,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
 
     public void update(SearchResult searchResult) {
         this.mSearchResult = searchResult;
-        notifyItemRangeChanged(0 , getItemCount());
+        notifyItemRangeChanged(0, getItemCount());
     }
 
     class ViewType {
@@ -85,7 +90,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
-        ImageView thumb;
+        SimpleDraweeView thumb;
         TextView trackName;
 
         public ItemViewHolder(View itemView) {
@@ -94,7 +99,14 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         }
 
         private void setupView() {
+            int itemViewHeight = (int) (Tools.getScreenSize(mContext)[0] * ITEM_HEIGHT);
+
+            itemView.getLayoutParams().height = itemViewHeight;
+
             thumb = itemView.findViewById(R.id.search_result_list_item_thumb);
+            thumb.getLayoutParams().width = itemViewHeight;
+            thumb.getLayoutParams().height = itemViewHeight;
+
             trackName = itemView.findViewById(R.id.search_result_list_item_track_name);
         }
     }
