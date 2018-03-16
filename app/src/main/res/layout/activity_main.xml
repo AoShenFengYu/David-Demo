@@ -89,6 +89,7 @@
         android:id="@+id/activity_main_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:descendantFocusability="afterDescendants"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_list_guide_line_bottom"
         app:layout_constraintLeft_toRightOf="@+id/activity_main_content_guide_line_left"
         app:layout_constraintRight_toLeftOf="@+id/activity_main_content_guide_line_right"
